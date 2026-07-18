@@ -1,0 +1,49 @@
+import math as m
+res = 0
+count = True
+while count:
+    user = input("Choose an operation to be performed (+, -, *, /, sin, cos) or type 'end' to exit: ").casefold()
+
+    if user == "end":
+        print("Exiting the calculator. Goodbye!")
+        break
+
+    if user == "+" or user == "-" or user == "*" or user == "/":
+        n1 = float(input("Enter first number: "))
+        n2 = float(input("Enter second number: "))
+
+    elif user == "sin" or user == "cos":
+        input_value = float(input("Enter the angle in degrees: "))
+
+    else:
+        print("Invalid operation. Please try again.")
+        continue
+
+    if user == "+":
+        result = n1 + n2
+        print("The result is:", result)
+
+    elif user == "-":
+        result = n1 - n2
+        print("The result is:", result)
+
+    elif user == "*":
+        result = n1 * n2
+        print("The result is:", result)
+
+    elif user == "/":
+        if n2 != 0:
+            result = n1 / n2
+            print("The result is:", result)
+        else:
+            print("Can't divide by zero.")
+
+    elif user == "sin":
+        radians = m.radians(input_value)
+        result = m.sin(radians)
+        print("The sine of", input_value, "is:", result)
+
+    elif user == "cos":
+        radians = m.radians(input_value)
+        result = m.cos(radians)
+        print("The cosine of", input_value, "is:", result)
